@@ -156,15 +156,32 @@ async function main() {
         document.querySelector(".left").style.left = "-120%";
     });
 
-    previous.addEventListener("click", () => {
-        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-        if ((index - 1) >= 0) playMusic(songs[index - 1]);
-    });
+   previous.addEventListener("click", () => {
+    let currentSongName = currentSong.src.split("/").slice(-1)[0];
+    let index = songs2.indexOf(currentSongName);
+
+    console.log("Previous Clicked. Current Index:", index);
+
+    if ((index - 1) >= 0) {
+        playMusic(songs2[index - 1]);
+    } else {
+        console.log("Start of playlist");
+    }
+})
 
     next.addEventListener("click", () => {
-        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-        if ((index + 1) < songs.length) playMusic(songs[index + 1]);
-    });
+    // This gets just the filename (e.g., "song1.mp3") from the full URL
+    let currentSongName = currentSong.src.split("/").slice(-1)[0];
+    let index = songs2.indexOf(currentSongName);
+
+    console.log("Next Clicked. Current Index:", index);
+
+    if ((index + 1) < songs2.length) {
+        playMusic(songs2[index + 1]);
+    } else {
+        console.log("End of playlist");
+    }
+})
 
     document.querySelector(".range input").addEventListener("change", (e) => {
         currentSong.volume = parseInt(e.target.value) / 100;
