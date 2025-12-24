@@ -157,7 +157,7 @@ async function main() {
     });
 
    previous.addEventListener("click", () => {
-    let currentSongName = currentSong.src.split("/").slice(-1)[0];
+    let currentSongName = (currentSong.src.split("/").slice(-1)[0]).replaceAll("%20"," ");
     let index = songs2.indexOf(currentSongName);
 
     console.log("Previous Clicked. Current Index:", index);
@@ -171,7 +171,7 @@ async function main() {
 
     next.addEventListener("click", () => {
     // This gets just the filename (e.g., "song1.mp3") from the full URL
-    let currentSongName = currentSong.src.split("/").slice(-1)[0];
+    let currentSongName = (currentSong.src.split("/").slice(-1)[0]).replaceAll("%20"," ");
     console.log("THis is name inside next "+currentSongName);
     let index = songs2.indexOf(currentSongName);
 
