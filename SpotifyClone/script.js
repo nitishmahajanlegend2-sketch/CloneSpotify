@@ -43,7 +43,7 @@ function secondsToMinutes(seconds) {
                                 <img class="invert" src="music.svg" alt="">
                                 <div class="info">
                                     <div>${song.replaceAll("%20", " ")}</div>
-                                    <div>Artist</div>
+                                    <div></div>
                                 </div>
                                 <div class="playnow">
                                     <span>Play Now</span>
